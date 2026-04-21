@@ -53,8 +53,19 @@ export default function ProductPage({
       </div>
 
       <section className="grid gap-8 rounded-[2rem] border border-stone-200 bg-white p-6 shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
-        <div className="relative min-h-[340px] overflow-hidden rounded-[1.5rem] bg-stone-100">
-          <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+        <div className="space-y-4">
+          <div className="relative min-h-[340px] overflow-hidden rounded-[1.5rem] bg-stone-100">
+            <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+          </div>
+          {product.images.length > 1 ? (
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {product.images.slice(1).map((image, index) => (
+                <div key={image} className="relative aspect-square overflow-hidden rounded-[1.25rem] bg-stone-100">
+                  <Image src={image} alt={`${product.name} ${index + 2}`} fill className="object-cover" />
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className="space-y-5">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-800">Ficha de producto</p>
