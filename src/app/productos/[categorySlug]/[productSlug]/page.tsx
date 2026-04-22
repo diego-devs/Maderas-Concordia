@@ -95,7 +95,7 @@ export default async function ProductPage({
           </div>
 
           <div className="flex flex-wrap gap-4 pt-2">
-            <Link href="/contacto" className="rounded-full bg-stone-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-800">
+            <Link href="/contacto" className="rounded-full bg-amber-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-700">
               Cotizar este producto
             </Link>
             <Link href={`/productos/${category.slug}`} className="rounded-full border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:border-stone-900 hover:text-stone-900">

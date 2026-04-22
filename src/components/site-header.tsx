@@ -24,7 +24,7 @@ export function SiteHeader() {
         </nav>
         <Link
           href="/contacto"
-          className="rounded-full bg-stone-900 px-4 py-2 text-sm font-semibold text-stone-50 transition hover:bg-amber-800"
+          className="rounded-full bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-700"
         >
           Solicitar cotización
         </Link>
