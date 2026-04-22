@@ -4,7 +4,7 @@ export const companyInfo = {
   phoneDisplay: "+52 442 244 0875",
   phoneHref: "tel:+524422440875",
   email: "recepcion@maderasconcordia.com",
-  whatsappHref: "https://wa.me/524422440875",
+  whatsappHref: "https://wa.me/524421970077",
   address: "Santiago de Querétaro, Querétaro, México",
   hours: "Lunes a viernes · Atención con asesoría especializada",
   description:

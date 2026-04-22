@@ -25,7 +25,12 @@ export default function ContactoPage() {
         <article className="rounded-[1.75rem] border border-stone-200 bg-white p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-stone-950">Correo</h2>
           <p className="mt-3 text-sm leading-7 text-stone-600">Para compartir requerimientos, medidas o referencias.</p>
-          <a href={`mailto:${companyInfo.email}`} className="mt-4 inline-block text-lg font-semibold text-amber-800">{companyInfo.email}</a>
+          <a
+            href={`mailto:${companyInfo.email}`}
+            className="mt-4 inline-block max-w-full overflow-hidden text-ellipsis break-all text-lg font-semibold text-amber-800"
+          >
+            {companyInfo.email}
+          </a>
         </article>
         <article className="rounded-[1.75rem] border border-stone-200 bg-white p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-stone-950">Ubicación</h2>

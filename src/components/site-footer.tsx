@@ -31,7 +31,12 @@ export function SiteFooter() {
               <a href={companyInfo.phoneHref} className="transition hover:text-white">{companyInfo.phoneDisplay}</a>
             </p>
             <p>
-              <a href={`mailto:${companyInfo.email}`} className="transition hover:text-white">{companyInfo.email}</a>
+              <a
+                href={`mailto:${companyInfo.email}`}
+                className="break-all transition hover:text-white"
+              >
+                {companyInfo.email}
+              </a>
             </p>
           </div>
         </div>
