@@ -8,8 +8,13 @@ export function generateStaticParams() {
   return getCategories().map((category) => ({ categorySlug: category.slug }));
 }
 
-export function generateMetadata({ params }: { params: { categorySlug: string } }): Metadata {
-  const category = getCategoryBySlug(params.categorySlug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ categorySlug: string }>;
+}): Promise<Metadata> {
+  const { categorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
 
   if (!category) {
     return { title: "Categoría" };
@@ -21,8 +26,13 @@ export function generateMetadata({ params }: { params: { categorySlug: string } 
   };
 }
 
-export default function CategoryPage({ params }: { params: { categorySlug: string } }) {
-  const category = getCategoryBySlug(params.categorySlug);
+export default async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ categorySlug: string }>;
+}) {
+  const { categorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
 
   if (!category) {
     notFound();

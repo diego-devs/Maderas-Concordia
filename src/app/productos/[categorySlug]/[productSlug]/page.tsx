@@ -11,12 +11,13 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { categorySlug: string; productSlug: string };
-}): Metadata {
-  const product = getProductBySlug(params.productSlug);
+  params: Promise<{ categorySlug: string; productSlug: string }>;
+}): Promise<Metadata> {
+  const { productSlug } = await params;
+  const product = getProductBySlug(productSlug);
 
   if (!product) {
     return { title: "Producto" };
@@ -28,13 +29,14 @@ export function generateMetadata({
   };
 }
 
-export default function ProductPage({
+export default async function ProductPage({
   params,
 }: {
-  params: { categorySlug: string; productSlug: string };
+  params: Promise<{ categorySlug: string; productSlug: string }>;
 }) {
-  const category = getCategoryBySlug(params.categorySlug);
-  const product = getProductBySlug(params.productSlug);
+  const { categorySlug, productSlug } = await params;
+  const category = getCategoryBySlug(categorySlug);
+  const product = getProductBySlug(productSlug);
 
   if (!category || !product || !product.categorySlugs.includes(category.slug)) {
     notFound();
