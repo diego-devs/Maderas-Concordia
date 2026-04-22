@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+const repoName = "Maderas-Concordia";
+
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -13,6 +18,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  trailingSlash: true,
+  ...(isGithubPages
+    ? {
+        basePath: `/${repoName}`,
+        assetPrefix: `/${repoName}/`,
+      }
+    : {}),
 };
 
 export default nextConfig;
